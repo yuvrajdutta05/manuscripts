@@ -8,7 +8,7 @@
 
 For $p\geq 3$, consider the $p$-spin Ising model on $\{-1,1\}^N$ given by
 
-$$
+```math
 \mathbb P_{\beta,h,p}(\boldsymbol\sigma)
 =\frac{1}{Z_N(\beta,h,p)}
 \exp\left\{
@@ -16,19 +16,19 @@ $$
 A_{i_1\cdots i_p}\sigma_{i_1}\cdots\sigma_{i_p}
 +h\sum_{i=1}^{N}\sigma_i
 \right\}.
-$$
+```
 
 Here $\boldsymbol A_N=(A_{i_1\cdots i_p})$ is a symmetric, entrywise nonnegative $p$-tensor whose entries vanish whenever two indices coincide, $\beta>0$ is the inverse temperature, and $h\in\mathbb R$ is the external magnetic field. We study the **global magnetization**
 
-$$
+```math
 \bar\sigma=\frac1N\sum_{i=1}^{N}\sigma_i.
-$$
+```
 
 Its mean-field centering $t\in(-1,1)$ is the unique solution to
 
-$$
+```math
 t=\tanh(\beta t^{p-1}+h)
-$$
+```
 
 in the parameter regime below.
 
@@ -36,30 +36,30 @@ in the parameter regime below.
 
 Let $\boldsymbol R=(R_{ij})$ be the pair marginal matrix of $\boldsymbol A_N$, and let $R_i$ denote its row sums:
 
-$$
+```math
 R_{ij}=\sum_{i_3,\ldots,i_p=1}^{N}A_{ij i_3\cdots i_p},
 \qquad
 R_i=\sum_{j=1}^N R_{ij}.
-$$
+```
 
 **Assumption (1.5).** There exists $\gamma\geq1$, independent of $N$, such that
 
-$$
+```math
 \sup_{N\geq1}\|\boldsymbol R_N\|_{\mathrm{op}}\leq\gamma.
-$$
+```
 
 **Parameter range (Definition 1.3).** The results hold in the Dobrushin-type high-temperature regime
 
-$$
+```math
 \Theta_p=\left\{(\beta,h):0<\beta<\frac{1}{(p-1)\gamma},\quad h\in\mathbb R\right\}.
-$$
+```
 
 Define the error functional (1.6)
 
-$$
+```math
 \alpha_N=\|\boldsymbol R\|_{\mathrm F}^2+
 t^{2(p-2)}\sum_{i=1}^{N}(R_i-1)^2.
-$$
+```
 
 We use $a_N\lesssim b_N$ to mean $a_N\leq Cb_N$ for some constant $C$ independent of $N$, and $d_{\mathrm{KS}}$ denotes Kolmogorov–Smirnov distance.
 
@@ -71,24 +71,24 @@ Suppose $(\beta,h)\in\Theta_p$ and $\boldsymbol A_N$ satisfies (1.5).
 
 **(a)** There exists a constant $C>0$, free of $N$, such that for every $\varepsilon>0$,
 
-$$
+```math
 \log\mathbb P_{\beta,h,p}\bigl(|\bar\sigma-t|\geq\varepsilon\bigr)
 \leq C(1+\alpha_N)-\frac{N\varepsilon^2}{4C}.
-$$
+```
 
 **(b)** For every $k\geq1$,
 
-$$
+```math
 \mathbb E|\bar\sigma-t|^k
 \lesssim\left(\frac{1+\alpha_N}{N}\right)^{k/2},
-$$
+```
 
 where the implicit constant depends on $k$ but not on $N$. In particular, if $\alpha_N=o(N)$, then $\mathbb E|\bar\sigma-t|^k\to0$ for every $k\geq1$. Consequently, for every $\varepsilon>0$,
 
-$$
+```math
 \mathbb P_{\beta,h,p}(|\bar\sigma-t|>\varepsilon)\longrightarrow0
 \quad\text{as }N\to\infty.
-$$
+```
 
 **Remark 1.1.** Theorem 1.1 requires only $\alpha_N=o(N)$, which is much weaker than the condition $\alpha_N+|t|^{p-1}\left|\sum_i(R_i-1)\right|=o(\sqrt N)$ under which Theorem 1.2 yields a central limit theorem. In particular, the bias term $\sum_i(R_i-1)$ plays no role at the level of the law of large numbers.
 
@@ -96,39 +96,38 @@ $$
 
 Let $p\geq3$. Suppose $(\beta,h)\in\Theta_p$ and the interaction tensors $\boldsymbol A_N$ satisfy (1.5). If $\boldsymbol\sigma$ is a random vector from the $p$-spin Ising model, then
 
-$$
+```math
 d_{\mathrm{KS}}\left(\sqrt N(\bar\sigma-t),Z_N\right)
 \lesssim\frac1{\sqrt N}
 \left(
 1+\alpha_N+|t|^{p-1}\left|\sum_{i=1}^{N}(R_i-1)\right|
-\right),
-\tag{1.7}
-$$
+\right)
+```
 
 where
 
-$$
+```math
 Z_N\sim\mathcal N\left(
 0,\frac{1-t^2}{1-\beta(p-1)t^{p-2}(1-t^2)}
 \right).
-$$
+```
 
 **Remark 1.2.** We make a few comments on Theorem 1.2.
 
 **(i)** The right-hand side of (1.7) is explicit in terms of $\boldsymbol R$. In particular, $\sqrt N(\bar\sigma-t)$ converges in distribution to $\mathcal N(0,s^2)$, with
 
-$$
+```math
 s^2=\frac{1-t^2}{1-\beta(p-1)t^{p-2}(1-t^2)},
-$$
+```
 
 as soon as
 
-$$
+```math
 \|\boldsymbol R\|_{\mathrm F}^2+
 t^{2(p-2)}\sum_{i=1}^{N}(R_i-1)^2+
 |t|^{p-1}\left|\sum_{i=1}^{N}(R_i-1)\right|
 =o(\sqrt N),
-$$
+```
 
 and the rate of convergence is $N^{-1/2}$ whenever the left-hand side is bounded. This is the same rate as in the Curie–Weiss model (Lemma 1.2).
 
@@ -142,17 +141,17 @@ and the rate of convergence is $N^{-1/2}$ whenever the left-hand side is bounded
 
 Let $Q$ denote the product measure under which $\sigma_1,\ldots,\sigma_N$ are i.i.d. $\{-1,1\}$-valued random variables with mean $t$. Suppose $\boldsymbol A_N$ satisfies (1.5) and $(\beta,h)\in\Theta_p$. Fix $\theta\in(1,\Lambda)$, where
 
-$$
+```math
 \Lambda=\frac1{\beta\gamma(p-1)}.
-$$
+```
 
 Then there exists $C_\theta>0$, independent of $N$, such that for every nonempty event $\Omega_N\subseteq\{-1,1\}^N$,
 
-$$
+```math
 \log\mathbb P_{\beta,h,p}(\Omega_N)
 \leq\left(1-\frac1\theta\right)\log Q(\Omega_N)
 +C_\theta\alpha_N.
-$$
+```
 
 Theorem 1.3 states that an event which is exponentially unlikely under the product measure $Q$ remains exponentially unlikely under $\mathbb P_{\beta,h,p}$, up to an additive error of order $\alpha_N$ on the logarithmic scale. It is the $p$-spin analogue of [1, Theorem 1.6], and it follows from Lemma 2.1 by taking $f(\boldsymbol\sigma)=\mathbf1_{\Omega_N}$. Results of this type are useful for transferring concentration inequalities from product measures to the Gibbs measure.
 
@@ -160,24 +159,24 @@ Theorem 1.3 states that an event which is exponentially unlikely under the produ
 
 Define
 
-$$
+```math
 I(x)=\frac{1+x}{2}\log\left(\frac{1+x}{2}\right)
 +\frac{1-x}{2}\log\left(\frac{1-x}{2}\right)
-$$
+```
 
 and the mean-field prediction (1.9)
 
-$$
+```math
 M_N(\beta,h,p)
 =N\left[\frac{\beta}{p}t^p+ht-I(t)\right]
 +\frac{\beta}{p}t^p\sum_{i=1}^N(R_i-1).
-$$
+```
 
 Suppose $\boldsymbol A_N$ satisfies (1.5) and $(\beta,h)\in\Theta_p$. Then
 
-$$
+```math
 0\leq\log Z_N(\beta,h,p)-M_N(\beta,h,p)\lesssim\alpha_N.
-$$
+```
 
 **Remark 1.3.** For $p=3$, the cubic tensor model of [4] with Rademacher base measure is equivalent to (1.1), since the Hamiltonian is $\frac{\beta}{3}\sum_{ijk}A_{ijk}\sigma_i\sigma_j\sigma_k+h\sum_i\sigma_i$ in both cases. For cubic models, [4, (9)] gives a quantitative bound on the log partition function in terms of the mean-field prediction formula, similar to Theorem 1.4. They prove it in [4, Theorem 1.10] under Assumption 1.2 and the mean-field condition (4). Below we demonstrate that barring the high temperature assumption, our conditions are weaker than [4] for mean-field prediction, for regular tensors.
 
