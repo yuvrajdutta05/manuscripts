@@ -6,7 +6,7 @@
 
 > **Work in progress.** This manuscript is an evolving research draft and will be updated regularly as the results and exposition develop.
 
-## Model
+## p-spin Ising Model
 
 For $p\geq 3$, consider the $p$-spin Ising model on $\{-1,1\}^N$ given by
 
