@@ -1,31 +1,29 @@
 # Research Manuscripts
 
-This repository hosts working versions of research manuscripts.
+This repository hosts evolving versions of research manuscripts. Manuscripts may be revised as the work progresses.
 
-## Papers
+## Fluctuations in p-spin Ising Model
 
-### Spin Ising manuscript
+**Authors:** Yuvraj Dutta and Sumit Mukherjee
 
-**Manuscript:** [PDF](p_spin_ising.pdf) *(to be uploaded)*
-
-**Title:** *To be added*
-
-**Authors:** *To be added*
+**Manuscript:** [View PDF](p_spin_ising.pdf) *(PDF upload pending)*
 
 **Status:** Working manuscript
 
-#### Brief description
+### Brief description
 
 *To be added.*
 
-#### Main results
+### Main results
 
 *To be added.*
 
-#### Notes and updates
+### Further remarks and updates
 
 *To be added.*
 
 ---
 
-Additional manuscripts can be added here in the future, each with its own description, main results, and PDF link.
+## Other manuscripts
+
+*Additional papers can be listed here in the future, with their own PDF links, descriptions, and main results.*
