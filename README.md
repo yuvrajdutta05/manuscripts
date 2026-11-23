@@ -8,7 +8,7 @@
 
 **Yuvraj Dutta and Sumit Mukherjee**
 
-[Read PDF](p_spin_ising.pdf) · [Main results and theorem statements](p_spin_ising/README.md)
+[Read PDF](p_spin_ising.pdf) · [Main results and theorems](p_spin_ising/README.md)
 
 We study fluctuations of the global magnetization in $p$-spin Ising models ($p\geq 3$) with general symmetric interaction tensors and an external magnetic field. In a Dobrushin-type high-temperature regime, we establish an explicit Berry–Esseen bound in terms of the interaction tensor's pair marginal, recovering the Gaussian limit and $N^{-1/2}$ rate of the $p$-spin Curie–Weiss model under suitable regularity conditions. We also obtain exponential concentration, a law of large numbers, comparison bounds with a product measure, and quantitative mean-field approximations to the log-partition function.
 
