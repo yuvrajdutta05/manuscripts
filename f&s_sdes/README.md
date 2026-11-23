@@ -51,7 +51,26 @@ Smoothing additionally incorporates future observations via a backward evolution
 \left[L^\dagger\nabla_{\theta_t}\log q(X;\theta_t)\right],
 ```
 
-with $F$ the Fisher information matrix and $L^\dagger$ the diffusion generator; the corresponding existing smoothing projection is given in Eq. 10. Our contribution is to **instantiate and extend this framework for positive-support, non-Gaussian approximating families**, with tractable equations and non-conjugate observation updates.
+Here $F(\theta_t)$ is the Fisher information matrix and $L^\dagger$ is the infinitesimal generator of the diffusion. The corresponding **smoothing entropic-matching equation** (Eq. 10) is
+
+```math
+\frac{d\widetilde{\theta}_t}{dt}
+=F(\widetilde{\theta}_t)^{-1}
+\mathbb{E}_{\widetilde{q}_t}
+\left[
+\widetilde{L}_t^\dagger
+\nabla_{\widetilde{\theta}_t}
+\log\widetilde{q}_t(X;\widetilde{\theta}_t)
+\right],
+```
+
+with terminal condition
+
+```math
+\widetilde{\theta}_T=\theta_T.
+```
+
+Here $\widetilde{L}_t^\dagger$ denotes the adjoint of the backward smoothing operator, which depends on the filtering distribution. These general entropic-matching equations provide the starting point for our **lognormal and gamma filtering and smoothing approximations**, and for incorporating non-conjugate observation updates.
 
 ## 3. Main contributions and results
 
@@ -106,7 +125,11 @@ and
 \right)-\widehat B(X)\right].
 ```
 
-These dynamics depend on the filtering parameters $(\mu_t,\Sigma_t)$ and are integrated backward with terminal values $(\widetilde\mu_T,\widetilde\Sigma_T)=(\mu_T,\Sigma_T)$.
+These smoothing dynamics depend on the filtering parameters and are integrated backward in time with terminal conditions
+
+```math
+\widetilde{\mu}_T=\mu_T,\qquad \widetilde{\Sigma}_T=\Sigma_T.
+```
 
 ### Gamma filtering and smoothing (Eqs. 15–16)
 
