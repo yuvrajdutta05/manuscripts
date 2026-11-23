@@ -77,7 +77,36 @@ Writing $\widehat a_i(x)=a_i(x)/x_i-B_{ii}(x)/(2x_i^2)$ and $\widehat B_{ij}(x)=
 +\widehat B(X)\right],
 ```
 
-where $\mathrm{sym}(M)=M+M^\top$. We also obtain the corresponding backward smoothing equations for $(\widetilde\mu_t,\widetilde\Sigma_t)$ (Eqs. 13–14), expressed in terms of the filtering parameters and the diffusion coefficients.
+where $\mathrm{sym}(M)=M+M^\top$. For smoothing, define
+
+```math
+\overline B_n(x)=-\widehat B_{nn}(x)
++\sum_{m=1}^d\frac{1}{x_n}\frac{\partial B_{nm}(x)}{\partial x_m}
+-\sum_{m=1}^d\widehat B_{nm}(x).
+```
+
+The corresponding **backward smoothing equations** (Eqs. 13–14) are
+
+```math
+\frac{d\widetilde\mu_t}{dt}
+=\mathbb E_{\widetilde q_t}
+\left[\widehat a(X)-\overline B(X)
++\widehat B(X)\Sigma_t^{-1}(\log X-\mu_t)\right],
+```
+
+and
+
+```math
+\frac{d\widetilde\Sigma_t}{dt}
+=\mathbb E_{\widetilde q_t}\left[
+\mathrm{sym}\left(
+\left(\widehat a(X)-\overline B(X)
++\widehat B(X)\Sigma_t^{-1}(\log X-\mu_t)\right)
+(\log X-\widetilde\mu_t)^\top
+\right)-\widehat B(X)\right].
+```
+
+These dynamics depend on the filtering parameters $(\mu_t,\Sigma_t)$ and are integrated backward with terminal values $(\widetilde\mu_T,\widetilde\Sigma_T)=(\mu_T,\Sigma_T)$.
 
 ### Gamma filtering and smoothing (Eqs. 15–16)
 
@@ -98,7 +127,54 @@ a_i(X)/X_i-B_{ii}(X)/(2X_i^2)\\
 \end{bmatrix}.
 ```
 
-The corresponding smoothing dynamics are given in Eq. 16. For broad classes of SDEs, including models with power-law drift and diffusion, the expectations yield closed-form ODE right-hand sides. The gamma product approximation does not directly represent posterior cross-correlations.
+For the **gamma smoothing equations** (Eq. 16), write
+
+```math
+\widetilde q_t(x)=\prod_{i=1}^d
+\mathrm{Gam}(x_i;\widetilde\alpha_{t,i},\widetilde\beta_{t,i}),
+\qquad
+\widetilde\theta_{t,i}=
+(\widetilde\alpha_{t,i},\widetilde\beta_{t,i})^\top,
+```
+
+and define the filtering score
+
+```math
+s_{t,m}(x)=\frac{\alpha_{t,m}-1}{x_m}-\beta_{t,m}.
+```
+
+The backward evolution of each smoothing parameter block is
+
+```math
+\frac{d\widetilde\theta_{t,i}}{dt}
+=F(\widetilde\theta_{t,i})^{-1}
+\mathbb E_{\widetilde q_t}
+\begin{bmatrix}
+g_{t,i}^{(1)}(X)\\
+g_{t,i}^{(2)}(X)
+\end{bmatrix},
+```
+
+where
+
+```math
+g_{t,i}^{(1)}(x)
+=\frac{a_i(x)}{x_i}+\frac{B_{ii}(x)}{2x_i^2}
+-\sum_{m=1}^d\frac{1}{x_i}
+\frac{\partial B_{im}(x)}{\partial x_m}
+-\sum_{m=1}^d\frac{B_{im}(x)}{x_i}s_{t,m}(x),
+```
+
+and
+
+```math
+g_{t,i}^{(2)}(x)
+=-a_i(x)+\sum_{m=1}^d
+\frac{\partial B_{im}(x)}{\partial x_m}
++\sum_{m=1}^d B_{im}(x)s_{t,m}(x).
+```
+
+Here $F$ is the gamma-family Fisher information matrix and the terminal condition is $\widetilde\theta_{T,i}=\theta_{T,i}$. For broad classes of SDEs, including models with power-law drift and diffusion, the expectations yield closed-form ODE right-hand sides. The gamma product approximation does not directly represent posterior cross-correlations.
 
 ### Non-conjugate observations (Section 5.2)
 
