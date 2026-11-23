@@ -1,29 +1,31 @@
 # Research Manuscripts
 
-This repository hosts evolving versions of research manuscripts. Manuscripts may be revised as the work progresses.
+This repository hosts evolving research manuscripts. Each paper has a dedicated page for its description, main results, and subsequent updates.
 
-## Fluctuations in p-spin Ising Model
+## Papers
+
+### 1. Fluctuations in p-spin Ising Model
 
 **Authors:** Yuvraj Dutta and Sumit Mukherjee
 
-**Manuscript:** [View PDF](p_spin_ising.pdf) *(PDF upload pending)*
+**PDF:** [p_spin_ising.pdf](p_spin_ising.pdf) *(upload pending)*
 
 **Status:** Working manuscript
 
-### Brief description
+**Brief description:** *To be added.*
 
-*To be added.*
+**Main results:** *To be added.*
 
-### Main results
+### 2. Entropic Matching for Filtering and Smoothing of Stochastic Differential Equations
 
-*To be added.*
+**Authors:** Yannick Eich, Yuvraj Dutta, and Heinz Koeppl
 
-### Further remarks and updates
+**PDF:** [f&s_sdes.pdf](f%26s_sdes.pdf) *(upload pending)*
 
-*To be added.*
+**Details:** [Dedicated paper README](f%26s_sdes/README.md)
+
+**Status:** Preprint / working manuscript
 
 ---
 
-## Other manuscripts
-
-*Additional papers can be listed here in the future, with their own PDF links, descriptions, and main results.*
+Additional papers and summaries may be added here in future.
