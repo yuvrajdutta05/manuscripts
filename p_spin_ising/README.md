@@ -4,6 +4,8 @@
 
 [**Read the manuscript (PDF)**](../p_spin_ising.pdf)
 
+> **Work in progress.** This manuscript is an evolving research draft and will be updated regularly as the results and exposition develop.
+
 ## Model
 
 For $p\geq 3$, consider the $p$-spin Ising model on $\{-1,1\}^N$ given by
@@ -57,7 +59,7 @@ R_i=\sum_{j=1}^N R_{ij}.
 Define the error functional (1.6)
 
 ```math
-\alpha_N=\|\boldsymbol R\|_{\mathrm F}^2+
+\alpha_N=\lVert\boldsymbol R\rVert_{\mathrm F}^2+
 t^{2(p-2)}\sum_{i=1}^{N}(R_i-1)^2.
 ```
 
@@ -123,7 +125,7 @@ s^2=\frac{1-t^2}{1-\beta(p-1)t^{p-2}(1-t^2)},
 as soon as
 
 ```math
-\|\boldsymbol R\|_{\mathrm F}^2+
+\lVert\boldsymbol R\rVert_{\mathrm F}^2+
 t^{2(p-2)}\sum_{i=1}^{N}(R_i-1)^2+
 |t|^{p-1}\left|\sum_{i=1}^{N}(R_i-1)\right|
 =o(\sqrt N),
@@ -131,7 +133,7 @@ t^{2(p-2)}\sum_{i=1}^{N}(R_i-1)^2+
 
 and the rate of convergence is $N^{-1/2}$ whenever the left-hand side is bounded. This is the same rate as in the Curie–Weiss model (Lemma 1.2).
 
-**(ii)** The term $\|\boldsymbol R\|_{\mathrm F}^2$ quantifies how far the interaction is from being of mean-field type, while the terms involving $R_i-1$ quantify the deviation of $\boldsymbol A_N$ from regularity. If $\boldsymbol A_N$ is exactly regular, i.e. $R_i=1$ $\forall i$, or there is no external magnetic field, i.e. $h=0$, only $\|\boldsymbol R\|_{\mathrm F}^2$ remains.
+**(ii)** The term $\lVert\boldsymbol R\rVert_{\mathrm F}^2$ quantifies how far the interaction is from being of mean-field type, while the terms involving $R_i-1$ quantify the deviation of $\boldsymbol A_N$ from regularity. If $\boldsymbol A_N$ is exactly regular, i.e. $R_i=1$ for all $i$, or there is no external magnetic field, i.e. $h=0$, only $\lVert\boldsymbol R\rVert_{\mathrm F}^2$ remains.
 
 **(iii)** When $h=0$, the Gaussian variance appearing in Theorem 1.2 equals $1$ for $p\geq3$. Consequently, whenever the conditions ensuring convergence in Theorem 1.2 hold, the limiting variance agrees with that of independent symmetric spins. This contrasts with the case $p=2$, where the corresponding variance is $1/(1-\beta)$, reflecting the pairwise correlations.
 
@@ -139,7 +141,7 @@ and the rate of convergence is $N^{-1/2}$ whenever the left-hand side is bounded
 
 ### Theorem 1.3 — Comparison with a product measure
 
-Let $Q$ denote the product measure under which $\sigma_1,\ldots,\sigma_N$ are i.i.d. $\{-1,1\}$-valued random variables with mean $t$. Suppose $\boldsymbol A_N$ satisfies (1.5) and $(\beta,h)\in\Theta_p$. Fix $\theta\in(1,\Lambda)$, where
+Let $\mathbb{Q}$ denote the product measure under which $\sigma_1,\ldots,\sigma_N$ are i.i.d. $\{-1,1\}$-valued random variables with mean $t$. Suppose $\boldsymbol A_N$ satisfies (1.5) and $(\beta,h)\in\Theta_p$. Fix $\theta\in(1,\Lambda)$, where
 
 ```math
 \Lambda=\frac1{\beta\gamma(p-1)}.
@@ -149,11 +151,11 @@ Then there exists $C_\theta>0$, independent of $N$, such that for every nonempty
 
 ```math
 \log\mathbb P_{\beta,h,p}(\Omega_N)
-\leq\left(1-\frac1\theta\right)\log Q(\Omega_N)
+\leq\left(1-\frac1\theta\right)\log \mathbb{Q}(\Omega_N)
 +C_\theta\alpha_N.
 ```
 
-Theorem 1.3 states that an event which is exponentially unlikely under the product measure $Q$ remains exponentially unlikely under $\mathbb P_{\beta,h,p}$, up to an additive error of order $\alpha_N$ on the logarithmic scale. It is the $p$-spin analogue of [1, Theorem 1.6], and it follows from Lemma 2.1 by taking $f(\boldsymbol\sigma)=\mathbf1_{\Omega_N}$. Results of this type are useful for transferring concentration inequalities from product measures to the Gibbs measure.
+Theorem 1.3 states that an event which is exponentially unlikely under the product measure $\mathbb{Q}$ remains exponentially unlikely under $\mathbb P_{\beta,h,p}$, up to an additive error of order $\alpha_N$ on the logarithmic scale. It is the $p$-spin analogue of [1, Theorem 1.6], and it follows from Lemma 2.1 by taking $f(\boldsymbol\sigma)=\mathbf1_{\Omega_N}$. Results of this type are useful for transferring concentration inequalities from product measures to the Gibbs measure.
 
 ### Theorem 1.4 — Mean-field approximation to the log-partition function
 
@@ -178,13 +180,59 @@ Suppose $\boldsymbol A_N$ satisfies (1.5) and $(\beta,h)\in\Theta_p$. Then
 0\leq\log Z_N(\beta,h,p)-M_N(\beta,h,p)\lesssim\alpha_N.
 ```
 
-**Remark 1.3.** For $p=3$, the cubic tensor model of [4] with Rademacher base measure is equivalent to (1.1), since the Hamiltonian is $\frac{\beta}{3}\sum_{ijk}A_{ijk}\sigma_i\sigma_j\sigma_k+h\sum_i\sigma_i$ in both cases. For cubic models, [4, (9)] gives a quantitative bound on the log partition function in terms of the mean-field prediction formula, similar to Theorem 1.4. They prove it in [4, Theorem 1.10] under Assumption 1.2 and the mean-field condition (4). Below we demonstrate that barring the high temperature assumption, our conditions are weaker than [4] for mean-field prediction, for regular tensors.
+**Remark 1.3.** For $p=3$, the cubic tensor model of [4] with Rademacher base measure is equivalent to (1.1), since the Hamiltonian is
 
-**(i) Boundedness:** Assumption 1.2 requires $\max_i\sum_{j,k}A_{ijk}\leq\gamma$, which implies $\|\boldsymbol R\|_{\mathrm{op}}\leq\max_iR_i\leq\gamma$. Hence it implies our assumption (1.5), which only bounds the operator norm of $\boldsymbol R$. Our boundedness condition is therefore weaker.
+```math
+\frac{\beta}{3}\sum_{i,j,k} A_{ijk}\sigma_i\sigma_j\sigma_k+h\sum_i\sigma_i
+```
 
-**(ii) Mean-field condition:** Condition (4) requires $\|\sum_i\boldsymbol A_i^2\|_{\mathrm{op}}=o(1/\log N)$, where $\boldsymbol A_i=((A_{ijk}))_{j,k\in[N]}$. By [4, Lemma 3.4(a)], we get $\operatorname{Tr}(\boldsymbol R^2)\leq N\|\sum_i\boldsymbol A_i^2\|_{\mathrm{op}}$, so (4) implies that $\|\boldsymbol R\|_{\mathrm F}^2=\operatorname{Tr}(\boldsymbol R^2)=o(N/\log N)$.
+in both cases. For cubic models, [4, (9)] gives a quantitative bound on the log partition function in terms of the mean-field prediction formula, similar to Theorem 1.4. They prove it in [4, Theorem 1.10] under Assumption 1.2 and the mean-field condition (4). Below we demonstrate that barring the high temperature assumption, our conditions are weaker than [4] for mean-field prediction, for regular tensors.
 
-Theorem 1.4 yields an $o(N)$ approximation error whenever $\|\boldsymbol R\|_{\mathrm F}^2=o(N)$, so our condition is weaker. In general, only the one-sided inequality $\operatorname{Tr}(\boldsymbol R^2)\leq N\|\sum_i\boldsymbol A_i^2\|_{\mathrm{op}}$ is true. The two sides are known to be of the same order under the strong pseudo-regularity and non-degeneracy conditions (6)–(7) of [4]. We do not require (6)–(7). Even when they match, our condition is weaker by a logarithmic factor. When they fail, $N\|\sum_i\boldsymbol A_i^2\|_{\mathrm{op}}$ may be much larger in order than $\operatorname{Tr}(\boldsymbol R^2)$, so our condition can be significantly weaker than (4), not just by a logarithmic factor.
+**(i) Boundedness:** Assumption 1.2 requires
+
+```math
+\max_i\sum_{j,k} A_{ijk}\leq\gamma,
+```
+
+which implies
+
+```math
+\lVert\boldsymbol R\rVert_{\mathrm{op}}\leq\max_iR_i\leq\gamma.
+```
+
+Hence it implies our assumption (1.5), which only bounds the operator norm of $\boldsymbol R$. Our boundedness condition is therefore weaker.
+
+**(ii) Mean-field condition:** Condition (4) requires
+
+```math
+\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}}=o(1/\log N),
+```
+
+where $\boldsymbol A_i=((A_{ijk}))_{j,k\in[N]}$. By [4, Lemma 3.4(a)], we get
+
+```math
+\operatorname{Tr}(\boldsymbol R^2)\leq N\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}},
+```
+
+so (4) implies that
+
+```math
+\lVert\boldsymbol R\rVert_{\mathrm F}^2=\operatorname{Tr}(\boldsymbol R^2)=o(N/\log N).
+```
+
+Theorem 1.4 yields an $o(N)$ approximation error whenever $\lVert\boldsymbol R\rVert_{\mathrm F}^2=o(N)$, so our condition is weaker. In general, only the one-sided inequality
+
+```math
+\operatorname{Tr}(\boldsymbol R^2)\leq N\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}}
+```
+
+is true. The two sides are known to be of the same order under the strong pseudo-regularity and non-degeneracy conditions (6)–(7) of [4]. We do not require (6)–(7). Even when they match, our condition is weaker by a logarithmic factor. When they fail,
+
+```math
+N\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}}
+```
+
+may be much larger in order than $\operatorname{Tr}(\boldsymbol R^2)$, so our condition can be significantly weaker than (4), not just by a logarithmic factor.
 
 **(iii) Order of the tensor:** The results of [4] are specific to cubic interactions ($p=3$), whereas Theorem 1.4 holds for non-negative symmetric tensors of every order $p\geq3$.
 
