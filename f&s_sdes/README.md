@@ -4,56 +4,114 @@
 
 [**Read the manuscript (PDF)**](../f%26s_sdes.pdf)
 
-> **Work in progress.** This preprint may be revised as the research and exposition develop. The linked PDF may be updated.
+> **Work in progress.** This preprint is subject to revision; the manuscript and the results presented here may be updated.
 
-## Model and inference setting
+## 1. Model and observation process
 
-We consider a latent diffusion $X_t\in\mathbb{R}^d$ governed by
+Let $(X_t)_{t\in[0,T]}$ be a latent diffusion in $\mathbb{R}^d$ satisfying
 
 ```math
 dX_t=a(X_t)\,dt+S(X_t)\,dW_t,\qquad B(x)=S(x)S(x)^\top,
 ```
 
-with observations at discrete times $t_1,\ldots,t_N$, following a general likelihood $p(y_i\mid X_{t_i})$. The goal is to approximate the **filtering** distribution (conditioning on observations up to time $t$) and **smoothing** distribution (conditioning on the full observation sequence).
+where $a:\mathbb{R}^d\to\mathbb{R}^d$ is the drift, $S:\mathbb{R}^d\to\mathbb{R}^{d\times m}$ is the diffusion coefficient, and $W_t$ is an $m$-dimensional Wiener process. The initial state has density $p_0$.
 
-Exact filtering and smoothing generally require evolving intractable probability densities. We instead represent them by parametric families with time-varying parameters.
+The state is observed indirectly at times $0<t_1<\cdots<t_N\leq T$ through conditionally independent observations with likelihood
 
-## Main contributions
+```math
+Y_i\mid X_{t_i}=x\sim p(y_i\mid x),\qquad
+p(y_{1:N}\mid x_{1:N})=\prod_{i=1}^N p(y_i\mid x_i).
+```
 
-### 1. Entropic-matching filtering and smoothing equations (Section 5.1)
+The likelihood need not be Gaussian or conjugate to the approximating distribution.
 
-Projecting the evolution of the filtering distribution onto a parametric family $q(x;\theta_t)$ leads to the finite-dimensional parameter equation
+## 2. Filtering and smoothing
+
+For $y_{[0,t]}=\{y_i:t_i\leq t\}$, **filtering** estimates the latent state using observations available *up to time* $t$, while **smoothing** uses the *entire* observation sequence:
+
+```math
+\pi_t(x)=p(X_t=x\mid y_{[0,t]}),\qquad
+\widetilde\pi_t(x)=p(X_t=x\mid y_{1:N}).
+```
+
+These denote conditional **densities**. Between observation times, $\pi_t$ evolves according to the Fokker–Planck equation, and at observation time $t_i$ it undergoes the Bayesian update
+
+```math
+\partial_t\pi_t=L\pi_t,\qquad
+\pi_{t_i}(x)\propto p(y_i\mid x)\,\pi_{t_i^-}(x).
+```
+
+Smoothing additionally incorporates future observations via a backward evolution with terminal condition $\widetilde\pi_T=\pi_T$. These density-valued evolutions are generally intractable for nonlinear SDEs.
+
+**Existing framework (not a new result of this paper).** Entropic matching projects these density dynamics onto a finite-dimensional parametric family $q(x;\theta)$ by minimizing a local Kullback–Leibler divergence. The resulting filtering equation (Eq. 9) is
 
 ```math
 \frac{d\theta_t}{dt}
-=F(\theta_t)^{-1}\,
-\mathbb{E}_{q_t}\!\left[L^\dagger\nabla_{\theta_t}\log q_t(X;\theta_t)\right],
+=F(\theta_t)^{-1}\mathbb E_{q_t}
+\left[L^\dagger\nabla_{\theta_t}\log q(X;\theta_t)\right],
 ```
 
-where $F$ is the Fisher information matrix and $L^\dagger$ is the diffusion generator. An analogous equation for smoothing parameters uses the backward smoothing operator and is solved with a terminal condition (Eq. 10).
+with $F$ the Fisher information matrix and $L^\dagger$ the diffusion generator; the corresponding existing smoothing projection is given in Eq. 10. Our contribution is to **instantiate and extend this framework for positive-support, non-Gaussian approximating families**, with tractable equations and non-conjugate observation updates.
 
-### 2. Lognormal and gamma approximations (Section 5.3)
+## 3. Main contributions and results
 
-We derive **filtering and smoothing parameter dynamics** for two non-Gaussian assumed-density families:
+### Lognormal filtering and smoothing (Eqs. 11–14)
 
-- **Multivariate lognormal:** preserves positivity, accommodates skewness, and is well matched to multiplicative-noise systems (Eqs. 11–14).
-- **Product gamma:** preserves positivity and is well suited to square-root diffusion models (Eqs. 15–16).
+We derive parameter dynamics for multivariate lognormal approximate marginals,
 
-For broad classes of SDEs, including power-law drift and diffusion coefficients, the resulting ordinary differential equations have **closed-form right-hand sides**. The product gamma family does not explicitly capture posterior correlations.
+```math
+q_t=\mathrm{Lognorm}(\mu_t,\Sigma_t),\qquad
+\widetilde q_t=\mathrm{Lognorm}(\widetilde\mu_t,\widetilde\Sigma_t).
+```
 
-### 3. Non-conjugate observations (Section 5.2)
+Writing $\widehat a_i(x)=a_i(x)/x_i-B_{ii}(x)/(2x_i^2)$ and $\widehat B_{ij}(x)=B_{ij}(x)/(x_i x_j)$, the filtering equations are
 
-We incorporate **expectation propagation** to iteratively refine observation updates when the likelihood and approximating family are not conjugate. This extends the approach beyond settings with analytically tractable Bayesian updates.
+```math
+\frac{d\mu_t}{dt}=\mathbb E_{q_t}[\widehat a(X)],
+```
 
-### 4. Numerical results (Section 6)
+\frac{d\Sigma_t}{dt}
+=\mathbb E_{q_t}\!\left[
+\mathrm{sym}\!\left(\widehat a(X)(\log X-\mu_t)^\top\right)
++\widehat B(X)\right],
+```
 
-We compare the approximations with a **sequential Monte Carlo smoother using 10,000 particles** on benchmark systems from finance and population biology, evaluating posterior-quantile accuracy.
+where $\mathrm{sym}(M)=M+M^\top$. We also obtain the corresponding backward smoothing equations for $(\widetilde\mu_t,\widetilde\Sigma_t)$ (Eqs. 13–14), expressed in terms of the filtering parameters and the diffusion coefficients.
 
-- **Cox–Ingersoll–Ross and logistic Feller models:** the gamma approximation yields lower posterior-quantile errors than the lognormal approximation across the tested observation settings.
-- **Constant elasticity of variance (CEV) model:** the lognormal approximation yields lower errors across the tested settings.
+### Gamma filtering and smoothing (Eqs. 15–16)
 
-The results illustrate how choosing an approximation family aligned with the diffusion structure can improve inference accuracy. The numerical comparison is between the lognormal and gamma methods and the SMC reference; it does not directly benchmark a Gaussian assumed-density smoother.
+For the positive-support product family
+
+```math
+q_t(x)=\prod_{i=1}^d\mathrm{Gam}(x_i;\alpha_{t,i},\beta_{t,i}),
+```
+
+we derive coupled parameter ODEs for filtering and smoothing. In particular, for $\theta_{t,i}=(\alpha_{t,i},\beta_{t,i})^\top$, the filtering dynamics are
+
+```math
+\frac{d\theta_{t,i}}{dt}
+=F(\theta_{t,i})^{-1}\mathbb E_{q_t}
+\begin{bmatrix}
+a_i(X)/X_i-B_{ii}(X)/(2X_i^2)\\
+-a_i(X)
+\end{bmatrix}.
+```
+
+The corresponding smoothing dynamics are given in Eq. 16. For broad classes of SDEs, including models with power-law drift and diffusion, the expectations yield closed-form ODE right-hand sides. The gamma product approximation does not directly represent posterior cross-correlations.
+
+### Non-conjugate observations (Section 5.2)
+
+We combine the derived non-Gaussian filters and smoothers with **expectation propagation (EP)** to update observation-site approximations when $p(y_i\mid x)$ is non-conjugate. EP itself is an established method; its use here enables the proposed lognormal and gamma SDE approximations to handle more general observation models.
+
+### Numerical findings (Section 6)
+
+We compare the lognormal and gamma smoothers with a sequential Monte Carlo reference using $10^4$ particles. Performance is measured by mean squared error in posterior quantiles across benchmark SDEs and Gaussian, Poisson, and lognormal observation models.
+
+- **Cox–Ingersoll–Ross and logistic Feller:** gamma achieves lower posterior-quantile errors in the reported configurations.
+- **Constant elasticity of variance (CEV):** lognormal achieves lower errors in the reported configurations.
+
+These results indicate that choosing the approximation family to reflect the diffusion structure can improve posterior inference. The experiments do not include a direct Gaussian assumed-density smoothing baseline.
 
 ---
 
-For full assumptions, derivations, numerical settings, and additional experiments, see the [paper](../f%26s_sdes.pdf).
+Full derivations, assumptions, and numerical results appear in the [manuscript](../f%26s_sdes.pdf).
