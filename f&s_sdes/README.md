@@ -43,7 +43,7 @@ These denote conditional **densities**. Between observation times, $\pi_t$ evolv
 
 Smoothing additionally incorporates future observations via a backward evolution with terminal condition $\widetilde\pi_T=\pi_T$. These density-valued evolutions are generally intractable for nonlinear SDEs.
 
-**Existing framework (not a new result of this paper).** Entropic matching projects these density dynamics onto a finite-dimensional parametric family $q(x;\theta)$ by minimizing a local Kullback–Leibler divergence. The resulting filtering equation (Eq. 9) is
+**Entropic-matching framework.** Entropic matching projects these density dynamics onto a finite-dimensional parametric family $q(x;\theta)$ by minimizing a local Kullback–Leibler divergence. The resulting filtering equation (Eq. 9) is
 
 ```math
 \frac{d\theta_t}{dt}
@@ -70,6 +70,7 @@ Writing $\widehat a_i(x)=a_i(x)/x_i-B_{ii}(x)/(2x_i^2)$ and $\widehat B_{ij}(x)=
 \frac{d\mu_t}{dt}=\mathbb E_{q_t}[\widehat a(X)],
 ```
 
+```math
 \frac{d\Sigma_t}{dt}
 =\mathbb E_{q_t}\!\left[
 \mathrm{sym}\!\left(\widehat a(X)(\log X-\mu_t)^\top\right)
