@@ -205,34 +205,34 @@ Hence it implies our assumption (1.5), which only bounds the operator norm of $\
 **(ii) Mean-field condition:** Condition (4) requires
 
 ```math
-\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}}=o(1/\log N),
+\lVert\sum_i\boldsymbol A_i^2\rVert_{\mathrm{op}}=o(1/\log N),
 ```
 
 where $\boldsymbol A_i=((A_{ijk}))_{j,k\in[N]}$. By [4, Lemma 3.4(a)], we get
 
 ```math
-\operatorname{Tr}(\boldsymbol R^2)\leq N\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}},
+\mathrm{Tr}(\boldsymbol R^2)\leq N\lVert\sum_i\boldsymbol A_i^2\rVert_{\mathrm{op}},
 ```
 
 so (4) implies that
 
 ```math
-\lVert\boldsymbol R\rVert_{\mathrm F}^2=\operatorname{Tr}(\boldsymbol R^2)=o(N/\log N).
+\lVert\boldsymbol R\rVert_{\mathrm F}^2=\mathrm{Tr}(\boldsymbol R^2)=o(N/\log N).
 ```
 
 Theorem 1.4 yields an $o(N)$ approximation error whenever $\lVert\boldsymbol R\rVert_{\mathrm F}^2=o(N)$, so our condition is weaker. In general, only the one-sided inequality
 
 ```math
-\operatorname{Tr}(\boldsymbol R^2)\leq N\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}}
+\mathrm{Tr}(\boldsymbol R^2)\leq N\lVert\sum_i\boldsymbol A_i^2\rVert_{\mathrm{op}}
 ```
 
 is true. The two sides are known to be of the same order under the strong pseudo-regularity and non-degeneracy conditions (6)–(7) of [4]. We do not require (6)–(7). Even when they match, our condition is weaker by a logarithmic factor. When they fail,
 
 ```math
-N\left\lVert\sum_i\boldsymbol A_i^2\right\rVert_{\mathrm{op}}
+N\lVert\sum_i\boldsymbol A_i^2\rVert_{\mathrm{op}}
 ```
 
-may be much larger in order than $\operatorname{Tr}(\boldsymbol R^2)$, so our condition can be significantly weaker than (4), not just by a logarithmic factor.
+may be much larger in order than $\mathrm{Tr}(\boldsymbol R^2)$, so our condition can be significantly weaker than (4), not just by a logarithmic factor.
 
 **(iii) Order of the tensor:** The results of [4] are specific to cubic interactions ($p=3$), whereas Theorem 1.4 holds for non-negative symmetric tensors of every order $p\geq3$.
 
