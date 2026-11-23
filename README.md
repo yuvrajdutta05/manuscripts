@@ -16,6 +16,6 @@ We study fluctuations of the global magnetization in $p$-spin Ising models ($p\g
 
 **Yannick Eich, Yuvraj Dutta, and Heinz Koeppl**
 
-[Read PDF](f%26s_sdes.pdf) · [Paper README](f%26s_sdes/README.md)
+[Read PDF](f%26s_sdes.pdf) · [Model and main results](f%26s_sdes/README.md)
 
 We develop an entropic-matching framework for approximate Bayesian filtering and smoothing of stochastic differential equations, using lognormal and gamma assumed-density approximations to handle positive, potentially skewed latent states. The approach derives finite-dimensional parameter dynamics, incorporates expectation propagation for non-conjugate observation models, and evaluates the resulting approximations against sequential Monte Carlo references on benchmark models from finance and population biology.
