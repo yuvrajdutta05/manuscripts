@@ -47,7 +47,7 @@ R_i=\sum_{j=1}^N R_{ij}.
 **Assumption (1.5).** There exists $\gamma\geq1$, independent of $N$, such that
 
 ```math
-\sup_{N\geq1}\|\boldsymbol R_N\|_{\mathrm{op}}\leq\gamma.
+\sup_{N\geq1}\lVert\boldsymbol R_N\rVert_{\mathrm{op}}\leq\gamma.
 ```
 
 **Parameter range (Definition 1.3).** The results hold in the Dobrushin-type high-temperature regime
