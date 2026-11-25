@@ -1,6 +1,6 @@
 # Research Manuscripts
 
-> **Work in progress:** The manuscripts hosted here are research drafts/preprints and are subject to revision. Their contents, results, and exposition may change, and the PDF files may be updated periodically. Links to the PDFs point to the latest uploaded versions.
+> **Manuscript status:** The p-spin Ising and entropic matching manuscripts are works in progress and may be updated periodically. The Brownian motion paper is available as an arXiv preprint. Each entry links to its manuscript and mathematical summary.
 
 ## Papers
 
@@ -19,3 +19,13 @@ We study fluctuations of the global magnetization in $p$-spin Ising models ($p\g
 [Read PDF](f%26s_sdes.pdf) · [Model and main results](f%26s_sdes/README.md)
 
 We develop an entropic-matching framework for approximate Bayesian filtering and smoothing of stochastic differential equations, using lognormal and gamma assumed-density approximations to handle positive, potentially skewed latent states. The approach derives finite-dimensional parameter dynamics, incorporates expectation propagation for non-conjugate observation models, and evaluates the resulting approximations against sequential Monte Carlo references on benchmark models from finance and population biology.
+
+### Brownian Motion with Drift Conditioned to Have Restricted L²-Norm
+
+**Frank Aurzada, Yuvraj Dutta, and Max Wiegand**
+
+**Status:** arXiv preprint
+
+[arXiv:2610.12354](https://arxiv.org/abs/2610.12354) · [arXiv PDF](https://arxiv.org/pdf/2610.12354) · [Model and main results](bm_withdrift_cond_l2/README.md)
+
+We study Brownian motion with a potentially time-dependent-in-horizon drift under rare-event conditioning on its quadratic additive functional. We establish sharp, uniform small-deviation asymptotics including the exact prefactor, and prove weak convergence of the conditioned path law to an Ornstein–Uhlenbeck process under both deterministic and exponentially randomized constraints. In both regimes, the limiting dynamics are independent of the original drift under the stated growth conditions.
