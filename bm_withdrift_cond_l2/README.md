@@ -4,7 +4,7 @@
 
 **Status:** arXiv preprint (arXiv:2610.12354)
 
-[**arXiv abstract and preprint**](https://arxiv.org/abs/2610.12354) · [arXiv PDF](https://arxiv.org/pdf/2610.12354) · [Local manuscript copy (PDF)](../bm_withdrift_cond_l2.pdf) *(upload pending)*
+[**arXiv:2610.12354**](https://arxiv.org/abs/2610.12354) · [Read manuscript (PDF)](../bm_withdrift_cond_l2.pdf) *(upload pending)*
 
 ## Model and conditioning
 
