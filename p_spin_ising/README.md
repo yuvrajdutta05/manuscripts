@@ -4,7 +4,8 @@
 
 [**Read the manuscript (PDF)**](../p_spin_ising.pdf)
 
-> **Work in progress.** This manuscript is an evolving research draft and will be updated regularly as the results and exposition develop.
+> **Working paper — Current version: November 26, 2026.**
+> This manuscript is being actively developed and will be updated periodically as the research progresses.
 
 ## p-spin Ising Model
 
